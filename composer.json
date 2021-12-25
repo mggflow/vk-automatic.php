@@ -1,0 +1,5 @@
+{
+    "require": {
+        "mggflow/vk-api": "^1.0"
+    }
+}
