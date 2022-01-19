@@ -1,5 +1,24 @@
 {
+    "name": "mggflow/vk-automatic",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pavel Eliseev",
+            "email": "deusagnis@gmail.com",
+            "homepage": "https://mggflow.in",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "MGGFLOW\\VK\\Automatic\\": "src/"
+        }
+    },
     "require": {
-        "mggflow/vk-api": "^1.0"
+        "mggflow/vk-api": "^2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
     }
 }
