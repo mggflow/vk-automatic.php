@@ -37,7 +37,9 @@ class InviteFriendsToGroup
             if (empty($memberResponse)) break;
 
             foreach ($memberResponse as $member) {
-                if ($member->invitation) continue;
+                if ((isset($member->invitation) and $member->invitation)
+                    or (isset($member->can_invite) and !$member->can_invite)
+                    or (isset($member->member) and $member->member)) continue;
 
                 $result->invited[$member->user_id] = $api->groups->invite([
                     'group_id' => $groupId,
