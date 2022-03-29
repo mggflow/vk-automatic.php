@@ -34,7 +34,7 @@ class AcceptIncomingFriendRequests
                 $result->accepted[$userId] = $api->friends->add([
                     'user_id' => $userId
                 ])->explore(true, 3, true);
-                $iterator->incSuccess();
+                if($result->accepted[$userId]) $iterator->incSuccess();
             }
         }
 
