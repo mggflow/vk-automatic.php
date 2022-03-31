@@ -23,7 +23,7 @@ class FriendsFriendsPleasure extends VKTask implements Task
         if (empty($result->friendFriendsResult->friendFriends)) return $result;
 
         foreach ($result->friendFriendsResult->friendFriends as $userId){
-            $result['likesResult'][$userId] = LikeUserRandItem::like($this->api, $userId);
+            $result->likesResult[$userId] = LikeUserRandItem::like($this->api, $userId);
         }
 
         return $result;
