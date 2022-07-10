@@ -22,6 +22,6 @@ $task = new EternalOnline($this->api);
 $result = $task->execute($api);
 
 // Result object fields is different for tasks.
-var_dump($result->onlineResult)
+var_dump($result->onlineResult);
 
 ```
