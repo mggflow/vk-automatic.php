@@ -6,6 +6,12 @@ use MGGFLOW\VK\API;
 
 class AcceptIncomingFriendRequests
 {
+    /**
+     * Accept incoming friend requests with settings bt Iterator.
+     * @param API $api
+     * @param Iterator $iterator
+     * @return object
+     */
     public static function accept(API $api, Iterator $iterator): object
     {
         $result = (object)[

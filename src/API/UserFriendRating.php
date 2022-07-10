@@ -4,14 +4,28 @@ namespace MGGFLOW\VK\Automatic\API;
 
 class UserFriendRating
 {
+    /**
+     * Fields necessary for rate user.
+     */
     const NECESSARY_FIELDS = 'is_closed,blacklisted,can_post,can_see_all_posts,can_see_audio,can_send_friend_request,can_write_private_message,common_count,connections,followers_count,friend_status,last_seen,has_photo';
 
+    /**
+     * Take ids of most rated user.
+     * @param array $rating
+     * @param int $count
+     * @return array
+     */
     public static function takeTopIds(array $rating, int $count = 1): array
     {
         $partToAdd = array_slice($rating, 0, $count, true);
         return array_keys($partToAdd);
     }
 
+    /**
+     * Rate users.
+     * @param $users
+     * @return object
+     */
     public static function createRating($users): object
     {
         $result = (object)[
@@ -34,6 +48,11 @@ class UserFriendRating
         return $result;
     }
 
+    /**
+     * Check available to add user to friends.
+     * @param object $user
+     * @return bool
+     */
     public static function userAvailableToFriend(object $user): bool
     {
         if (isset($user->deactivated)) return false;
@@ -43,6 +62,11 @@ class UserFriendRating
         return true;
     }
 
+    /**
+     * Rate user.
+     * @param object $user
+     * @return float
+     */
     public static function rateUser(object $user): float
     {
         $rating = 0;

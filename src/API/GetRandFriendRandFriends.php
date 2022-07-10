@@ -6,6 +6,13 @@ use MGGFLOW\VK\API;
 
 class GetRandFriendRandFriends
 {
+    /**
+     * Get any random friends of random friend.
+     * @param API $api
+     * @param int $count
+     * @param array $params
+     * @return object
+     */
     static function get(API $api, int $count, array $params = [])
     {
         $result = (object)[

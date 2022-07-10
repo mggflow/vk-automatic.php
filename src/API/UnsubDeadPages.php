@@ -6,6 +6,12 @@ use MGGFLOW\VK\API;
 
 class UnsubDeadPages
 {
+    /**
+     * Unsubscribe from dead pages.
+     * @param API $api
+     * @param Iterator $iterator
+     * @return object
+     */
     public static function unsub(API $api, Iterator $iterator): object
     {
         $result = (object)[

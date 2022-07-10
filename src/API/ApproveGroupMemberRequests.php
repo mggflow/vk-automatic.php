@@ -6,6 +6,13 @@ use MGGFLOW\VK\API;
 
 class ApproveGroupMemberRequests
 {
+    /**
+     * Approve incoming requests to group.
+     * @param API $api
+     * @param Iterator $iterator
+     * @param int $groupId
+     * @return object
+     */
     public static function approve(API $api, Iterator $iterator, int $groupId): object
     {
         $result = (object)[

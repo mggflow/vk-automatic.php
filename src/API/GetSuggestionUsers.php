@@ -6,6 +6,12 @@ use MGGFLOW\VK\API;
 
 class GetSuggestionUsers
 {
+    /**
+     * Get users from friend suggestions.
+     * @param API $api
+     * @param array $params
+     * @return object
+     */
     static function get(API $api, array $params)
     {
         $result = (object)[

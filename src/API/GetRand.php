@@ -6,6 +6,15 @@ use MGGFLOW\VK\API;
 
 class GetRand
 {
+    /**
+     * Get rand objects.
+     * @param API $api
+     * @param string $object
+     * @param string $action
+     * @param int $count
+     * @param array $options
+     * @return object
+     */
     public static function get(API $api, string $object, string $action, int $count = 1, array $options = []): object
     {
         $result = (object)[

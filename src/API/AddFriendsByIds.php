@@ -6,6 +6,12 @@ use MGGFLOW\VK\API;
 
 class AddFriendsByIds
 {
+    /**
+     * Add friends by ids.
+     * @param API $api
+     * @param array $friendIds
+     * @return object
+     */
     static function add(API $api, array $friendIds): object
     {
         $result = (object)[

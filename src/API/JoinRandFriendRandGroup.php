@@ -6,6 +6,11 @@ use MGGFLOW\VK\API;
 
 class JoinRandFriendRandGroup
 {
+    /**
+     * Join to rand group of rand friend.
+     * @param API $api
+     * @return object
+     */
     static function join(API $api)
     {
         $result = (object)[

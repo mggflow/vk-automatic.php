@@ -6,6 +6,13 @@ use MGGFLOW\VK\API;
 
 class InviteFriendsToGroup
 {
+    /**
+     * Send invites to group.
+     * @param API $api
+     * @param Iterator $iterator
+     * @param int $groupId
+     * @return object
+     */
     public static function invite(API $api, Iterator $iterator, int $groupId): object
     {
         $result = (object)[

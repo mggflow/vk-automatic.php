@@ -6,6 +6,13 @@ use MGGFLOW\VK\API;
 
 class GetGroupRandUsers
 {
+    /**
+     * Get any random members of group.
+     * @param API $api
+     * @param int $count
+     * @param array $params Contents group id.
+     * @return object
+     */
     static function get(API $api, int $count, array $params)
     {
         $result = (object)[

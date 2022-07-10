@@ -6,6 +6,12 @@ use MGGFLOW\VK\API;
 
 class GetOutgoingFriendRequests
 {
+    /**
+     * Get outgoing friend requests.
+     * @param API $api
+     * @param Iterator $iterator
+     * @return object
+     */
     static function get(API $api, Iterator $iterator): object
     {
         $result = (object)[

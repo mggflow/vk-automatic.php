@@ -1,18 +1,53 @@
 <?php
+/**
+ * This class using for handle getting collection of elements from VK API.
+ */
 
 namespace MGGFLOW\VK\Automatic\API;
 
 class Iterator
 {
+    /**
+     * Offset in collection.
+     * @var int
+     */
     public int $offset = 0;
+    /**
+     * Step count per request.
+     * @var int
+     */
     public int $count = 10;
+    /**
+     * Volume of collection elements in requests.
+     * @var int
+     */
     public int $volume = 10;
+    /**
+     * Volume of selection of elements from requests.
+     * @var int|mixed|null
+     */
     public ?int $successVolume = null;
+    /**
+     * Amount elements in collection.
+     * @var int|null
+     */
     public ?int $amount = null;
 
+    /**
+     * Maximum of iterations.
+     * @var int
+     */
     public int $maxIteration = 100000;
 
+    /**
+     * If true in end of collection offset will not reset.
+     * @var bool
+     */
     public bool $staticOffset = false;
+    /**
+     * If true offset will be decreasing by success volume of elements.
+     * @var bool
+     */
     public bool $decOffsetBySuccess = false;
 
     protected int $inertCounter = 0;
@@ -22,6 +57,13 @@ class Iterator
 
     protected int $iteration = 0;
 
+    /**
+     * Create object with initial values.
+     * @param $offset
+     * @param $count
+     * @param $volume
+     * @param $successVolume
+     */
     public function __construct($offset, $count, $volume, $successVolume = 0)
     {
         $this->offset = $offset;
@@ -30,6 +72,10 @@ class Iterator
         $this->successVolume = $successVolume;
     }
 
+    /**
+     * Check available to continue iterations.
+     * @return bool
+     */
     public function continue(): bool
     {
         $this->handlePresetAmount();
@@ -48,21 +94,39 @@ class Iterator
         return true;
     }
 
+    /**
+     * Increase common volume of elements.
+     * @param $increment
+     * @return void
+     */
     public function incInert($increment = null)
     {
         $this->inertIncrement += $increment ?? $this->count;
     }
 
+    /**
+     * Increase success volume of elements.
+     * @param $increment
+     * @return void
+     */
     public function incSuccess($increment = 1)
     {
         $this->successIncrement += $increment;
     }
 
+    /**
+     * Check if reaches success volume of elements.
+     * @return bool
+     */
     public function successVolumeReached(): bool
     {
         return isset($this->successVolume) and (($this->successCounter + $this->successIncrement) >= $this->successVolume);
     }
 
+    /**
+     * Create summary of iterations.
+     * @return object
+     */
     public function createSummary(): object
     {
         return (object)[

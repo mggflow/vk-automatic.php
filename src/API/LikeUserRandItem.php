@@ -6,6 +6,12 @@ use MGGFLOW\VK\API;
 
 class LikeUserRandItem
 {
+    /**
+     * Like random post or photo for user by id.
+     * @param API $api
+     * @param int $userId
+     * @return object
+     */
     static function like(API $api, int $userId): object
     {
         $result = (object)[

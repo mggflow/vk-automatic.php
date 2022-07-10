@@ -6,6 +6,12 @@ use MGGFLOW\VK\API;
 
 class CancelFriendRequestsFor
 {
+    /**
+     * Cancel incoming friend requests by user ids.
+     * @param API $api
+     * @param array $userIds
+     * @return object
+     */
     static function cancel(API $api, array $userIds): object
     {
         $result = (object)[
